@@ -88,6 +88,22 @@ class AI:
         return actions.data.numpy()
     
     
+# part 2 - Training the AI with the Deep Convolutional Q-Learning
+        
+#Getting the Doom invironment 
+        
+doom_env = image_preprocessing.PreprocessImage(SkipWrapper(4)(ToDiscrete("minimal")(gym.make("ppaquette/DoomCorridor-v0"))), width = 80, height = 80, grayscale = True)
+doom_env = gym.wrappers.Monitor(doom_env, "videos", force = True)
+number_actions = doom_env.action_space.n
+     
+#Building an AI
+
+
+cnn = CNN(number_actions)
+softmax_body = SoftmaxBody(T = 1.0)
+ai = AI(brain = cnn, body = softmax_body)
+
+# Setting up experiance Replay
 
         
      
