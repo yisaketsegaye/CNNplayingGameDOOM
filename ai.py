@@ -58,7 +58,50 @@ class CNN(nn.Module):
         return x
     
         
+# Making the body 
         
+class SoftmaxBody(nn.Module):
+    
+    def __init(self, T):
+        super(SoftmaxBody,self).__init__()
+        self.T = T
+    
+    def forward(self, outputs):
+       probs = F.softmax(outputs * self.T)
+       actions = probs.multinomial()
+       return actions
+   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
 
  
