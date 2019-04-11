@@ -127,7 +127,13 @@ def eligiblity_trace(batch):
     return torch.from_numpy(np.array(inputs, dtype = np.float32)), torch.stack(targets)
     
 
-
+# Making the moving avarage on 100 steps
+class MA:
+    def __init__(self,size):
+        self.list_of_rewards = []
+        self.size = size
+        
+                
     
     
     
