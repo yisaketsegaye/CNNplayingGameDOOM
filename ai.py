@@ -133,9 +133,24 @@ class MA:
         self.list_of_rewards = []
         self.size = size
         
+    def add(self,rewards):
+        if isinstance(self.list_of_rewards , list):
+            self.list_of_rewards += rewards 
+        else:
+            self.list_of_rewards.append(rewards)
+            
+        while len(self.list_of_rewards) > 100:
+            del self.list_of_rewards[0]
+            
+    def avarage(self):
+        return np.mean(self.list_of_rewards)
+    
+ma = MA(100)
+
+# Trainning the AI
                 
     
-    
+
     
     
     
